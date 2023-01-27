@@ -1,0 +1,79 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.courseCard {
+  width: 250px;
+  margin: 20px 20px 20px 20px;
+  background-color: rgb(73, 73, 73);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.courseCardText {
+  padding: 16px 16px 16px 16px;
+}
+
+.courseHolder {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.centerHalf {
+  margin: auto;
+  margin-top: 20px;
+  width: 50%;
+  padding: 10px;
+}
+
+.centerTwoThird {
+  margin: auto;
+  margin-top: 20px;
+  width: 66%;
+  padding: 10px;
+}
+
+.centerText {
+  text-align: center;
+  color: red;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.column {
+  padding: 6px;
+  flex: 50%;
+}
+
+.textCenterXl {
+  text-align: center;
+  font-size: x-large;
+}
+
+.textCenterL {
+  text-align: center;
+  font-size: large;
+}
