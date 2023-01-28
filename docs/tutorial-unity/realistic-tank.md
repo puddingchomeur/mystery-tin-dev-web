@@ -33,80 +33,37 @@ import Thumbnail from '@site/src/components/thumbnail';
 2. **Rename** it to *CameraFollow*
 3. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | ---        | ---        | ---        |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 4. **Create** an **Empty** child of *CameraFollow*
 5. **Rename** it to *CameraPivot*
 6. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 7. **Create** a **Camera** child of *CameraPivot*
 8. **Rename** it to *Camera*
 9. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 3.0    |  Z: -6.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 10.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">3.0</Highlight> | <Highlight color="#0000ff">-6.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">10.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 ### 1.2. Create the Camera Follow Code
 1. **Create** a **C# Script** inside *Scripts*
 2. **Rename** it to *Follow*
 3. **Double Click** on *Follow* to open it in your code editor
 4. **Copy** the code below
-
-```C#
-using UnityEngine;  
-  
-public class Follow : MonoBehaviour  
-{  
-    // Components  
-    [Header("Components")]  
-    public Transform targetTransform;  
-    
-    // Update  
-    [Header("Update")]   
-	public EUpdateType updateType = EUpdateType.FixedUpdate;  
-    public enum EUpdateType  
-    {  
-        Update,  
-        FixedUpdate,  
-        LateUpdate  
-    }  
-    
-    // Follow  
-    [Header("Movement")]  
-    public float followSpeed = 5f;  
-  
-    private void Update()  
-    {        
-	    if (updateType != EUpdateType.Update)  
-            return;  
-        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.deltaTime);  
-    } 
-     
-    private void FixedUpdate()  
-    {        
-	    if (updateType != EUpdateType.FixedUpdate)  
-            return;  
-        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.fixedDeltaTime);  
-    } 
-     
-    private void LateUpdate()  
-    {        
-	    if (updateType != EUpdateType.LateUpdate)  
-            return;  
-        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.deltaTime);  
-    }
-}
-```
 
 5. **Save** the script to compile it
 6. **Assign** the script to *CameraFollow* in Unity
@@ -191,23 +148,26 @@ public class Look : MonoBehaviour
 2. **Rename** it to *Tank*
 3. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 4. **Add** a *Box Collider* 
 
-| Is Trigger | false |
-| ---------- | ------- |
-| Material   |         |
+| Collider   | Properties   |
+| ---------- | -------      |
+| Is Trigger | false        |
+| Material   |              |
 | Center     | 0, 0.5, 0.15 |
-| Size     | 2, 1, 3.325 |
+| Size       | 2, 1, 3.325  |
 
 5. **Add** a *Rigidbody* 
 
-| Mass            | 50                  |
+| Rigidbody       | Properties         |
 | --------------- | ------------------ |
+| Mass            | 50                 |
 | Drag            | 0                  |
 | Angular Drag    | 0.05               |
 | Use Gravity     | true               |
@@ -221,77 +181,89 @@ public class Look : MonoBehaviour
 7. **Rename** it to *Meshes*
 8. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 9. **Create** a **Box** child of *Meshes* 
 10. **Rename** it to *Base*
 11. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.5    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 2.0    |  Y: 1.0    |  Z: 3.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.5</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">2.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">3.0</Highlight> |
+
 12. **Delete** the *Box Collider*
 
 13. **Create** a **Box** child of *Meshes* 
 14. **Rename** it to *Front*
 15. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.325    |  Z: 1.5    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 45.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 2.0    |  Y: 0.45    |  Z: 0.45    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.325</Highlight> | <Highlight color="#0000ff">1.5</Highlight> |
+| Rotation  | <Highlight color="#be0000">45.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">2.0</Highlight> | <Highlight color="#026440">0.45</Highlight> | <Highlight color="#0000ff">0.45</Highlight> |
+
 16. **Delete** the *Box Collider*
 
 17. **Create** an **Empty** child of *Meshes* 
 18. **Rename** it to *TurretPivot*
 19. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 1.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 20. **Create** a **Cylinder** child of *TurretPivot* 
 21. **Rename** it to *Turret*
 22. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.2    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.5    |  Y: 0.2    |  Z: 1.5    |
-19. **Delete** the *Capsule Collider*
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.2</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.5</Highlight> | <Highlight color="#026440">0.2</Highlight> | <Highlight color="#0000ff">1.5</Highlight> |
 
-23. **Create** an **Empty** child of *TurretPivot* 
-24. **Rename** it to *BarrelPivot*
-25. **Set Transform** 
+23. **Delete** the *Capsule Collider*
 
-| Position |  X: 0.0  |  Y: 0.175  |  Z: 0.7  |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0  |  Y: 0.0    |  Z: 0.0  |
-| Scale    |  X: 1.0  |  Y: 1.0    |  Z: 1.0  |
+24. **Create** an **Empty** child of *TurretPivot* 
+25. **Rename** it to *BarrelPivot*
+26. **Set Transform** 
 
-26. **Create** a **Cylinder** child of *BarrelPivot* 
-27. **Rename** it to *Barrel*
-28. **Set Transform** 
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.175</Highlight> | <Highlight color="#0000ff">0.7</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-| Position |  X: 0.0   |  Y: 0.0  |  Z: 1.0  |
-| -------- | --- | --- | --- |
-| Rotation |  X: 90.0  |  Y: 0.0  |  Z: 0.0  |
-| Scale    |  X: 0.2   |  Y: 1.0  |  Z: 0.2  |
-29. **Delete** the *Capsule Collider*
+27. **Create** a **Cylinder** child of *BarrelPivot* 
+28. **Rename** it to *Barrel*
+29. **Set Transform** 
 
-30. **Create** an **Empty** child of *Barrel* 
-31. **Rename** it to *ShellSpawn*
-32. **Set Transform** 
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">90.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">0.2</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">0.2</Highlight> |
 
-| Position |  X: 0.0    |  Y: 1.5    |  Z: 0.0  |
-| -------- | ---        | ---        | ---      |
-| Rotation |  X: -90.0  |  Y: 0.0    |  Z: 0.0  |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0  |
+30. **Delete** the *Capsule Collider*
+
+31. **Create** an **Empty** child of *Barrel* 
+32. **Rename** it to *ShellSpawn*
+33. **Set Transform** 
+
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">1.5</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">-90.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 ### 2.2. Create the Tank Code
 1. **Create** a **C# Script** inside *Scripts*
@@ -496,25 +468,29 @@ aimRotationSpeed * Time.deltaTime);
 2. **Rename** it to *Shell*
 3. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 4. **Add** a *Capsule Collider* 
 
-| Is Trigger | false   |
-| ---------- | ------- |
-| Material   |         |
-| Center     | 0, 0, 0 | 
-| Radius     | 0.1     |
-| Height     | 0.4     |
-| Direction  | Z-Axis  |
+| Collider   | Properties |
+| ---------- | -------    |
+| Is Trigger | false      |
+| Material   |            |
+| Center     | 0, 0, 0    | 
+| Radius     | 0.1        |
+| Height     | 0.4        |
+| Direction  | Z-Axis     |
+
 
 5. **Add** a *Rigidbody* 
 
-| Mass            | 5                  |
+| Rigidbody       | Properties         |
 | --------------- | ------------------ |
+| Mass            | 5                  |
 | Drag            | 0                  |
 | Angular Drag    | 0.05               |
 | Use Gravity     | true               |
@@ -528,19 +504,21 @@ aimRotationSpeed * Time.deltaTime);
 7. **Rename** it to *Meshes*
 8. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 9. **Create** an **Capsule** child of *Meshes* 
 10. **Rename** it to *Base*
 11. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 90.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 0.2    |  Y: 0.2    |  Z: 0.2    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">90.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">0.2</Highlight> | <Highlight color="#026440">0.2</Highlight> | <Highlight color="#0000ff">0.2</Highlight> |
 
 ### 3.2. Create the Shell Code
 1. **Create** a **C# Script** inside *Scripts*
@@ -590,19 +568,21 @@ public class Destroy : MonoBehaviour
 2. **Rename** it to *Environment*
 3. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 1.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 4. **Create** a **Box** child of *Environment* 
 5. **Rename** it to *Ground*
 6. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: -0.1    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 50.0    |  Y: 0.2    |  Z: 50.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">-0.1</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">50.0</Highlight> | <Highlight color="#026440">0.2</Highlight> | <Highlight color="#0000ff">50.0</Highlight> |
 
 ## 5. Enemies *Optional*
 
@@ -611,15 +591,17 @@ public class Destroy : MonoBehaviour
 2. **Rename** it to *Target*
 3. **Set Transform** 
 
-| Position |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| -------- | --- | --- | --- |
-| Rotation |  X: 0.0    |  Y: 0.0    |  Z: 0.0    |
-| Scale    |  X: 1.0    |  Y: 3.0    |  Z: 1.0    |
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">1.5</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">3.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 4. **Add** a *Rigidbody* 
 
-| Mass            | 25                  |
+| Rigidbody       | Properties         |
 | --------------- | ------------------ |
+| Mass            | 25                 |
 | Drag            | 0                  |
 | Angular Drag    | 0.05               |
 | Use Gravity     | true               |
