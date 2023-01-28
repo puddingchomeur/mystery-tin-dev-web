@@ -17,6 +17,9 @@
   body {
     font-family: "SofiaPro", sans-serif;
   }
+  table {
+    margin-left: 32px;
+  }
 }
 
 /**

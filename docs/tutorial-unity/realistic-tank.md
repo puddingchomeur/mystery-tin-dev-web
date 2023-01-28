@@ -31,9 +31,9 @@ import Thumbnail from '@site/src/components/thumbnail';
 ## 1. Camera
 
 ### 1.1. Create the Camera
-- ➕**Create** an **Empty** 
-- ✏️**Rename** it to *CameraFollow*
-- 🌎**Set Transform** 
+1. ➕ **Create** an **Empty** 
+2. ✏️ **Rename** it to *CameraFollow*
+3. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -41,9 +41,9 @@ import Thumbnail from '@site/src/components/thumbnail';
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-4. ➕**Create** an **Empty** child of *CameraFollow*
-5. ✏️**Rename** it to *CameraPivot*
-6. 🌎**Set Transform** 
+4. ➕ **Create** an **Empty** child of *CameraFollow*
+5. ✏️ **Rename** it to *CameraPivot*
+6. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
