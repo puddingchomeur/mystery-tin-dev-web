@@ -4,11 +4,10 @@ title: Realistic Tank
 description: Create a realistic tank controller in unity
 ---
 
-# Realistic Tank 
+import Highlight from '@site/src/components/highlight';
+import Thumbnail from '@site/src/components/thumbnail';
 
-![img alt](/img/realistic-tank.png)
-
-[Youtube](https://www.youtube.com/watch?v=iBhd8xeTlgE)
+<Thumbnail name="Tank" imgFile="realistic-tank.png" link="https://www.youtube.com/watch?v=iBhd8xeTlgE"/>
 
 ## Etape 1 : Créer le Mesh du Tank
 1. Créer un projet Unity.
@@ -40,75 +39,6 @@ description: Create a realistic tank controller in unity
 1. Créer un dossier Scripts à la racine du projet sous Assets.
 2. A l'intérieur, créer un script C# et le nommer Tank.
 3. Assigner le script à l'objet Tank dans la scène.
-
-```csharp
-using UnityEngine;  
-  
-public class Tank : MonoBehaviour  
-{  
-    // Transforms  
-    public Transform turretPivot;  
-    public Transform barrelPivot;  
-    public Transform shellSpawn;  
-    public Rigidbody rigidbody;  
-  
-    // Shell  
-    public GameObject shellObj;  
-    public float fireForce = 1500f;  
-    public float shellLifetime = 1f;  
-  
-    // Base Movement  
-    public float moveSpeed = 5f;  
-    public float rotationSpeed = 40f;  
-  
-    // Turret Movement  
-    public float turretPivotSpeed = 200f;  
-    // Barrel Movement  
-    public float barrelPivotSpeed = 100f;  
-    public float minBarrelRotX = -20f;  
-    public float maxBarrelRotX = 10f;  
-    public bool invertMouseY = true;  
-  
-    private float _turretRotY;  
-    private float _barrelRotX;  
-    private float _rotY;  
-  
-    private void Start()  
-    {        Cursor.lockState = CursorLockMode.Locked;  
-        Cursor.visible = false;  
-    }    void Update()  
-    {        float mouseX = Input.GetAxis("Mouse X");  
-        float mouseY = Input.GetAxis("Mouse Y");  
-        float moveX = Input.GetAxis("Horizontal");  
-        float moveY = Input.GetAxis("Vertical");  
-        bool shootWasPressed = Input.GetMouseButtonDown(0);  
-  
-        Look(mouseX, mouseY);  
-        Move(moveX, moveY);  
-        Shoot(shootWasPressed);  
-    }  
-    private void Look(float mouseX, float mouseY)  
-    {        _turretRotY += mouseX * turretPivotSpeed * Time.deltaTime;  
-        turretPivot.rotation = Quaternion.Euler(0f, _turretRotY, 0f);  
-  
-        _barrelRotX += mouseY * barrelPivotSpeed * Time.deltaTime * (invertMouseY ? -1f : 1f);  
-        _barrelRotX = Mathf.Clamp(_barrelRotX, minBarrelRotX, maxBarrelRotX);  
-        barrelPivot.localRotation = Quaternion.Euler(_barrelRotX, 0f, 0f);  
-    }  
-    private void Move(float moveX, float moveY)  
-    {        rigidbody.position += transform.forward * moveY * moveSpeed * Time.deltaTime;  
-        rigidbody.rotation = Quaternion.Euler(rigidbody.rotation.eulerAngles + new Vector3(0f, moveX * rotationSpeed * Time.deltaTime, 0f));  
-    }  
-    private void Shoot(bool shootWasPressed)  
-    {        
-	    if (shootWasPressed)  
-        {            GameObject shell = Instantiate(shellObj, shellSpawn.position, shellSpawn.rotation);  
-            shell.GetComponent<Rigidbody>().AddForce(shell.transform.forward *fireForce);  
-            Destroy(shell, shellLifetime);  
-        }    
-    }
-}
-```
 
 
 
