@@ -26,12 +26,14 @@ import Thumbnail from '@site/src/components/thumbnail';
 8. **Create** a **Folder** under *Assets*
 9. **Rename** it to *Prefabs*
 
+---
+
 ## 1. Camera
 
 ### 1.1. Create the Camera
-1. **Create** an **Empty** 
-2. **Rename** it to *CameraFollow*
-3. **Set Transform** 
+- ➕**Create** an **Empty** 
+- ✏️**Rename** it to *CameraFollow*
+- 🌎**Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -39,9 +41,9 @@ import Thumbnail from '@site/src/components/thumbnail';
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-4. **Create** an **Empty** child of *CameraFollow*
-5. **Rename** it to *CameraPivot*
-6. **Set Transform** 
+4. ➕**Create** an **Empty** child of *CameraFollow*
+5. ✏️**Rename** it to *CameraPivot*
+6. 🌎**Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -140,6 +142,8 @@ public class Look : MonoBehaviour
 6. **Assign** the script to *CameraFollow* in Unity
 7. **Select** the *CameraFollow* in your scene
 8. **Assign** the *CameraPivot* in *CameraPivotTransform*
+
+---
 
 ## 2. Tank
 
@@ -461,6 +465,8 @@ aimRotationSpeed * Time.deltaTime);
 10. **Assign** the *ShellSpawn* in *ShellSpawnTransform*
 11. **Assign** the *Rigidbody* of the tank in *Rigidbody*
 
+---
+
 ## 3. Shell
 
 ### 3.1. Create the Shell
@@ -561,6 +567,8 @@ public class Destroy : MonoBehaviour
 8. **Select** the *Tank* in your scene
 9. **Assign** the *Shell* in *ShellPrefab*
 
+---
+
 ## 4. Environment *Optional*
 
 ### 4.1. Create the Environment
@@ -583,6 +591,8 @@ public class Destroy : MonoBehaviour
 | Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">-0.1</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">50.0</Highlight> | <Highlight color="#026440">0.2</Highlight> | <Highlight color="#0000ff">50.0</Highlight> |
+
+---
 
 ## 5. Enemies *Optional*
 
