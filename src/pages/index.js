@@ -5,6 +5,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
+import Translate, {translate} from '@docusaurus/Translate';
+
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -13,8 +15,12 @@ function HomepageHeader() {
     <header className="bg-[url('/img/Banner_01.png')]">
       <div className="p-8 md:mx-auto md:text-center md:py-24 md:grid grid-cols-2 md:gap-8 md:w-1/2 md:items-center">
           <div className="text-left">
-              <p className="text-5xl font-cubano">LEARN GAMEDEV</p>
-              <p className="text-2xl text-gray-300 font-sofiapro mt-2">Mystery Tin is a <b className='text-white'>fast</b> & <b className='text-white'>fun</b> way to level up your gamedev skills.</p>
+              <p className="text-5xl font-cubano"><Translate>LEARN GAMEDEV</Translate></p>
+              <p className="text-2xl text-gray-300 font-sofiapro mt-2">
+                <Translate>
+                  Mystery Tin is a fast & fun way to level up your gamedev skills
+                </Translate>
+              </p>
           </div>
           <div className="">
               <iframe width="420" height="230" src="https://www.youtube.com/embed/PzUO9fHIryg"></iframe>
@@ -43,16 +49,39 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.title}
-      description="Description will go into a meta tag in <head />">
+      description="Welcome Page">
       <HomepageHeader />
       <main>
         <div className="m-auto sm:flex md:w-1/2 md:space-x-8 xs:ml-8 xs:mr-8 mt-8 mb-8 content-center">
-          <LinkCard name="Docs" desc="Litteral supplements to all content" url="/docs/start"/>
-          <LinkCard name="Youtube" desc="Level up your brain"/>
-          <LinkCard name="Github" desc="Access scripts and artefacts"/>
-        </div>
-        
 
+          <div className='flex flex-col w-full'>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/start">
+              Docs
+            </Link>
+            <p className='mt-2'><Translate>Litteral supplements to all content</Translate></p>
+          </div>
+
+          <div className='flex flex-col w-full'>
+            <Link
+              className="button button--secondary button--lg"
+              to="">
+              Youtube
+            </Link>
+            <p className='mt-2'><Translate>Level up your brain</Translate></p>
+          </div>
+
+          <div className='flex flex-col w-full'>
+            <Link
+              className="button button--secondary button--lg"
+              to="">
+              Github
+            </Link>
+            <p className='mt-2'><Translate>Access scripts and artefacts</Translate></p>
+          </div>
+
+        </div>
       </main>
     </Layout>
   );

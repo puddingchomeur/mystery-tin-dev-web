@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial Unity": {
+    "message": "Tutorial Unity",
+    "description": "The label for category Tutorial Unity in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial Unity.link.generated-index.description": {
+    "message": "Unity Documentation for every tutorials",
+    "description": "The generated-index page description for category Tutorial Unity in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial Unreal Engine": {
+    "message": "Tutorial Unreal Engine",
+    "description": "The label for category Tutorial Unreal Engine in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial Unreal Engine.link.generated-index.description": {
+    "message": "Unreal Engine Documentation for every tutorials",
+    "description": "The generated-index page description for category Tutorial Unreal Engine in sidebar tutorialSidebar"
+  }
+}
