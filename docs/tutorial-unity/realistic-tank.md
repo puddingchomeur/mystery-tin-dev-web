@@ -12,19 +12,19 @@ import Thumbnail from '@site/src/components/thumbnail';
 ## 0. Unity project
 
 ### 0.1. Setup the Unity project
-1. **Create** or **Open** a new Unity project
+1. ➕ **Create** or **Open** a new Unity project
 
-2. **Rename**  *SampleScene* to *Gym* in the *Scene* folder,  
-3. **Double Click** on *Gym* to reload it
+2. ✏️ **Rename**  *SampleScene* to *Gym* in the *Scene* folder,  
+3. 🖱🖱 **Double Click** on *Gym* to reload it
 
-4. **Delete** *Global Volume*
-5. **Delete** *Main Camera*
+4. ❌ **Delete** *Global Volume*
+5. ❌ **Delete** *Main Camera*
 
-6. **Create** a **Folder** under *Assets*
-7. **Rename** it to *Scripts*
+6. ➕ **Create** a **Folder** under *Assets*
+7. ✏️ **Rename** it to *Scripts*
 
-8. **Create** a **Folder** under *Assets*
-9. **Rename** it to *Prefabs*
+8. ➕ **Create** a **Folder** under *Assets*
+9. ✏️ **Rename** it to *Prefabs*
 
 ---
 
@@ -51,9 +51,9 @@ import Thumbnail from '@site/src/components/thumbnail';
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-7. **Create** a **Camera** child of *CameraPivot*
-8. **Rename** it to *Camera*
-9. **Set Transform** 
+7. ➕ **Create** a **Camera** child of *CameraPivot*
+8. ✏️ **Rename** it to *Camera*
+9. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -62,21 +62,21 @@ import Thumbnail from '@site/src/components/thumbnail';
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 ### 1.2. Create the Camera Follow Code
-1. **Create** a **C# Script** inside *Scripts*
-2. **Rename** it to *Follow*
-3. **Double Click** on *Follow* to open it in your code editor
-4. **Copy** the code below
+1. ➕ **Create** a **C# Script** inside *Scripts*
+2. ✏️ **Rename** it to *Follow*
+3. 🖱🖱 **Double Click** on *Follow* to open it in your code editor
+4. 📚 **Copy** the code below
 
-5. **Save** the script to compile it
-6. **Assign** the script to *CameraFollow* in Unity
-7. **Select** the *CameraFollow* in your scene
-8. **Assign** the *Tank* in *TargetTransform*
+5. ➕ **Save** the script to compile it
+6. 🎯 **Assign** the script to *CameraFollow* in Unity
+7. 🖱 **Select** the *CameraFollow* in your scene
+8. 🎯 **Assign** the *Tank* in *TargetTransform*
 
 ### 1.3. Create the Camera Look Code
-1. **Create** a **C# Script** inside *Scripts*
-2. **Rename** it to *Look*
-3. **Double Click** on *Look* to open it in your code editor
-4. **Copy** the code below
+1. ➕ **Create** a **C# Script** inside *Scripts*
+2. ✏️ **Rename** it to *Look*
+3. 🖱🖱 **Double Click** on *Look* to open it in your code editor
+4. 📚 **Copy** the code below
 
 ```C#
 using UnityEngine;  
@@ -138,19 +138,19 @@ public class Look : MonoBehaviour
 }
 ```
 
-5. **Save** the script to compile it
-6. **Assign** the script to *CameraFollow* in Unity
-7. **Select** the *CameraFollow* in your scene
-8. **Assign** the *CameraPivot* in *CameraPivotTransform*
+5. 💾 **Save** the script to compile it
+6. 🎯 **Assign** the script to *CameraFollow* in Unity
+7. 🖱 **Select** the *CameraFollow* in your scene
+8. 🎯 **Assign** the *CameraPivot* in *CameraPivotTransform*
 
 ---
 
 ## 2. Tank
 
 ### 2.1. Create the Mesh
-1. **Create** an **Empty** 
-2. **Rename** it to *Tank*
-3. **Set Transform** 
+1. ➕ **Create** an **Empty** 
+2. ✏️ **Rename** it to *Tank*
+3. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -158,7 +158,7 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-4. **Add** a *Box Collider* 
+4. 📦 **Add** a *Box Collider* 
 
 | Collider   | Properties   |
 | ---------- | -------      |
@@ -167,7 +167,7 @@ public class Look : MonoBehaviour
 | Center     | 0, 0.5, 0.15 |
 | Size       | 2, 1, 3.325  |
 
-5. **Add** a *Rigidbody* 
+5. 🍎 **Add** a *Rigidbody* 
 
 | Rigidbody       | Properties         |
 | --------------- | ------------------ |
@@ -181,9 +181,9 @@ public class Look : MonoBehaviour
 | Freeze Position |                    |
 | Freeze Rotation |                    |
 
-6. **Create** an **Empty** child of *Tank* 
-7. **Rename** it to *Meshes*
-8. **Set Transform** 
+6. ➕ **Create** an **Empty** child of *Tank* 
+7. ✏️ **Rename** it to *Meshes*
+8. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -191,9 +191,9 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-9. **Create** a **Box** child of *Meshes* 
-10. **Rename** it to *Base*
-11. **Set Transform** 
+9. ➕ **Create** a **Box** child of *Meshes* 
+10. ✏️ **Rename** it to *Base*
+11. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -201,11 +201,11 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">2.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">3.0</Highlight> |
 
-12. **Delete** the *Box Collider*
+12. ❌ **Delete** the *Box Collider*
 
-13. **Create** a **Box** child of *Meshes* 
-14. **Rename** it to *Front*
-15. **Set Transform** 
+13. ➕ **Create** a **Box** child of *Meshes* 
+14. ✏️ **Rename** it to *Front*
+15. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -213,11 +213,11 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">45.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">2.0</Highlight> | <Highlight color="#026440">0.45</Highlight> | <Highlight color="#0000ff">0.45</Highlight> |
 
-16. **Delete** the *Box Collider*
+16. ❌ **Delete** the *Box Collider*
 
-17. **Create** an **Empty** child of *Meshes* 
-18. **Rename** it to *TurretPivot*
-19. **Set Transform** 
+17. ➕ **Create** an **Empty** child of *Meshes* 
+18. ✏️ **Rename** it to *TurretPivot*
+19. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -225,9 +225,9 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-20. **Create** a **Cylinder** child of *TurretPivot* 
-21. **Rename** it to *Turret*
-22. **Set Transform** 
+20. ➕ **Create** a **Cylinder** child of *TurretPivot* 
+21. ✏️ **Rename** it to *Turret*
+22. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -235,11 +235,11 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.5</Highlight> | <Highlight color="#026440">0.2</Highlight> | <Highlight color="#0000ff">1.5</Highlight> |
 
-23. **Delete** the *Capsule Collider*
+23. ❌ **Delete** the *Capsule Collider*
 
-24. **Create** an **Empty** child of *TurretPivot* 
-25. **Rename** it to *BarrelPivot*
-26. **Set Transform** 
+24. ➕ **Create** an **Empty** child of *TurretPivot* 
+25. ✏️ **Rename** it to *BarrelPivot*
+26. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -247,9 +247,9 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-27. **Create** a **Cylinder** child of *BarrelPivot* 
-28. **Rename** it to *Barrel*
-29. **Set Transform** 
+27. ➕ **Create** a **Cylinder** child of *BarrelPivot* 
+28. ✏️ **Rename** it to *Barrel*
+29. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -257,11 +257,11 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">90.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">0.2</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">0.2</Highlight> |
 
-30. **Delete** the *Capsule Collider*
+30. ❌ **Delete** the *Capsule Collider*
 
-31. **Create** an **Empty** child of *Barrel* 
-32. **Rename** it to *ShellSpawn*
-33. **Set Transform** 
+31. ➕ **Create** an **Empty** child of *Barrel* 
+32. ✏️ **Rename** it to *ShellSpawn*
+33. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -270,10 +270,10 @@ public class Look : MonoBehaviour
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
 ### 2.2. Create the Tank Code
-1. **Create** a **C# Script** inside *Scripts*
-2. **Rename** it to *RealisticTank*
-3. **Double Click** on *RealisticTank* to open it in your code editor
-4. **Copy** the code below
+1. ➕ **Create** a **C# Script** inside *Scripts*
+2. ✏️ **Rename** it to *RealisticTank*
+3. 🖱🖱 **Double Click** on *RealisticTank* to open it in your code editor
+4. 📚 **Copy** the code below
 
 ```C#
 using UnityEngine;  
@@ -457,22 +457,22 @@ aimRotationSpeed * Time.deltaTime);
 }
 ```
 
-5. **Save** the script to compile it
-6. **Assign** the script to *Tank* in Unity
-7. **Select** the *Tank* in your scene
-8. **Assign** the *TurretPivot* in *TurretPivotTransform*
-9. **Assign** the *BarrelPivot* in *BarrelPivotTransform*
-10. **Assign** the *ShellSpawn* in *ShellSpawnTransform*
-11. **Assign** the *Rigidbody* of the tank in *Rigidbody*
+5. 💾 **Save** the script to compile it
+6. 🎯 **Assign** the script to *Tank* in Unity
+7. 🖱 **Select** the *Tank* in your scene
+8. 🎯 **Assign** the *TurretPivot* in *TurretPivotTransform*
+9. 🎯 **Assign** the *BarrelPivot* in *BarrelPivotTransform*
+10. 🎯 **Assign** the *ShellSpawn* in *ShellSpawnTransform*
+11. 🎯 **Assign** the *Rigidbody* of the tank in *Rigidbody*
 
 ---
 
 ## 3. Shell
 
 ### 3.1. Create the Shell
-1. **Create** an **Empty** 
-2. **Rename** it to *Shell*
-3. **Set Transform** 
+1. ➕ **Create** an **Empty** 
+2. ✏️ **Rename** it to *Shell*
+3. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -480,7 +480,7 @@ aimRotationSpeed * Time.deltaTime);
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-4. **Add** a *Capsule Collider* 
+4. 💊 **Add** a *Capsule Collider* 
 
 | Collider   | Properties |
 | ---------- | -------    |
@@ -492,7 +492,7 @@ aimRotationSpeed * Time.deltaTime);
 | Direction  | Z-Axis     |
 
 
-5. **Add** a *Rigidbody* 
+5. 🍎 **Add** a *Rigidbody* 
 
 | Rigidbody       | Properties         |
 | --------------- | ------------------ |
@@ -506,9 +506,9 @@ aimRotationSpeed * Time.deltaTime);
 | Freeze Position |                    |
 | Freeze Rotation |                    |
 
-6. **Create** an **Empty** child of *Shell* 
-7. **Rename** it to *Meshes*
-8. **Set Transform** 
+6. ➕ **Create** an **Empty** child of *Shell* 
+7. ✏️ **Rename** it to *Meshes*
+8. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -516,9 +516,9 @@ aimRotationSpeed * Time.deltaTime);
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-9. **Create** an **Capsule** child of *Meshes* 
-10. **Rename** it to *Base*
-11. **Set Transform** 
+9. ➕ **Create** an **Capsule** child of *Meshes* 
+10. ✏️ **Rename** it to *Base*
+11. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -527,10 +527,10 @@ aimRotationSpeed * Time.deltaTime);
 | Scale     | <Highlight color="#be0000">0.2</Highlight> | <Highlight color="#026440">0.2</Highlight> | <Highlight color="#0000ff">0.2</Highlight> |
 
 ### 3.2. Create the Shell Code
-1. **Create** a **C# Script** inside *Scripts*
-2. **Rename** it to *Destroy*
-3. **Double Click** on *Destroy* to open it in your code editor
-4. **Copy** the code below
+1. ➕ **Create** a **C# Script** inside *Scripts*
+2. ✏️ **Rename** it to *Destroy*
+3. 🖱🖱 **Double Click** on *Destroy* to open it in your code editor
+4. 📚 **Copy** the code below
 
 ```C#
 using UnityEngine;  
@@ -561,20 +561,20 @@ public class Destroy : MonoBehaviour
 }
 ```
 
-5. **Save** the script to compile it
-6. **Assign** the script to *Shell* in Unity
-7. **Drag** the *Shell* from the hierarchy to the *Prefabs* folder
-8. **Select** the *Tank* in your scene
-9. **Assign** the *Shell* in *ShellPrefab*
+5. 💾 **Save** the script to compile it
+6. 🎯 **Assign** the script to *Shell* in Unity
+7. ➡️ **Drag** the *Shell* from the hierarchy to the *Prefabs* folder
+8. 🖱 **Select** the *Tank* in your scene
+9. 🎯 **Assign** the *Shell* in *ShellPrefab*
 
 ---
 
 ## 4. Environment *Optional*
 
 ### 4.1. Create the Environment
-1. **Create** an **Empty** 
-2. **Rename** it to *Environment*
-3. **Set Transform** 
+1. ➕ **Create** an **Empty** 
+2. ✏️ **Rename** it to *Environment*
+3. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -582,9 +582,9 @@ public class Destroy : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-4. **Create** a **Box** child of *Environment* 
-5. **Rename** it to *Ground*
-6. **Set Transform** 
+4. ➕ **Create** a **Box** child of *Environment* 
+5. ✏️ **Rename** it to *Ground*
+6. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -597,9 +597,9 @@ public class Destroy : MonoBehaviour
 ## 5. Enemies *Optional*
 
 ### 5.1. Create the Enemies
-1. **Create** a **Box**
-2. **Rename** it to *Target*
-3. **Set Transform** 
+1. ➕ **Create** a **Box**
+2. ✏️ **Rename** it to *Target*
+3. 🌎 **Set Transform** 
 
 | Transform | X  | Y | Z |
 | --------  | --- | --- | --- |
@@ -607,7 +607,7 @@ public class Destroy : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">3.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-4. **Add** a *Rigidbody* 
+4. 🍎 **Add** a *Rigidbody* 
 
 | Rigidbody       | Properties         |
 | --------------- | ------------------ |
@@ -621,9 +621,9 @@ public class Destroy : MonoBehaviour
 | Freeze Position |                    |
 | Freeze Rotation |                    |
 
-5. **Drag** the *Target* from the hierarchy to the *Prefabs* folder
-6. **Copy** and place around in your scene
-7. **Try** to push them off the ground by shooting them!
+5. ➡️ **Drag** the *Target* from the hierarchy to the *Prefabs* folder
+6. 📚 **Copy** and place around in your scene
+7. ♣️ **Try** to push them off the ground by shooting them!
 
 ...And done! 
 

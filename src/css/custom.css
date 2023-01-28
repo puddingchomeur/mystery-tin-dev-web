@@ -16,9 +16,19 @@
 @layer base {
   body {
     font-family: "SofiaPro", sans-serif;
+    color:rgb(167, 167, 167)
   }
   table {
     margin-left: 32px;
+    color:rgb(255, 255, 255);
+    border: 5px;
+    border-collapse:collapse
+  }
+  tr {
+    color:rgb(255, 255, 255)
+  }
+  h1, h2, h3 {
+    color:rgb(255, 255, 255)
   }
 }
 

@@ -17,8 +17,8 @@ function HomepageHeader() {
       <div className="w-full md:mx-auto sm:w-2/3 lg:1/2 lg:flex md:py-24 md:items-center">
 
           <div className="text-left p-8 md:p-0">
-              <p className="text-5xl font-cubano"><Translate>LEARN GAMEDEV</Translate></p>
-              <p className="text-2xl text-gray-300 font-sofiapro mt-2">
+              <p className="text-5xl font-cubano text-white"><Translate>LEARN GAMEDEV</Translate></p>
+              <p className="text-2xl text-gray-300 font-sofiapro mt-2 text-gray-200">
                 <Translate>
                   Mystery Tin is a fast & fun way to level up your gamedev skills
                 </Translate>
