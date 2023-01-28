@@ -9,7 +9,7 @@ const youtubeName = 'Mystery Tin Dev';
 const config = {
   title: youtubeName,
   tagline: 'Short & Modular Gamedev tutorials',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://mysterytindev.netlify.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -79,7 +79,7 @@ const config = {
         },
         items: [
           {to: '/docs/start', label: 'Docs', position: 'left'},
-          {to: '/courses', label: 'Courses', position: 'right'},
+          //{to: '/courses', label: 'Courses', position: 'right'},
           {to: '/courses', label: 'Github', position: 'left'},
         ],
       },

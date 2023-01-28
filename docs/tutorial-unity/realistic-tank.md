@@ -6,6 +6,9 @@ description: Create a realistic tank controller in unity
 
 # Realistic Tank 
 
+![img alt](/img/realistic-tank.png)
+
+[Youtube](https://www.youtube.com/watch?v=iBhd8xeTlgE)
 
 ## Etape 1 : Créer le Mesh du Tank
 1. Créer un projet Unity.
