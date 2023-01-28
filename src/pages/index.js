@@ -25,9 +25,7 @@ function HomepageHeader() {
               </p>
           </div>
 
-          <div className="">
-              <iframe width="420" height="230" src="https://www.youtube.com/embed/PzUO9fHIryg"></iframe>
-          </div>
+          <iframe className='w-full h-56 md:h-80'  src="https://www.youtube.com/embed/PzUO9fHIryg"></iframe>
 
       </div>
 
@@ -44,7 +42,7 @@ export default function Home() {
       description="Welcome Page">
       <HomepageHeader />
       <main>
-        <div className="m-auto flex-1 md:flex md:w-1/2 md:space-x-8 mt-8 mb-8 content-center">
+        <div className="m-auto flex-1 md:flex md:w-1/2 md:space-x-8 content-center p-8">
 
           <div className='flex flex-col w-full'>
             <Link
