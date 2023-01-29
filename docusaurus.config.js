@@ -161,9 +161,10 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Mystery Tin Dev`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['csharp'],
+        
       },
     }),
 };

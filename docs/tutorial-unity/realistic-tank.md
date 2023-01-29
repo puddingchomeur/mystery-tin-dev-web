@@ -7,7 +7,8 @@ description: Create a realistic tank controller in unity
 import Highlight from '@site/src/components/highlight';
 import Thumbnail from '@site/src/components/thumbnail';
 
-<Thumbnail name="Tank" imgFile="realistic-tank.png" link="https://www.youtube.com/watch?v=iBhd8xeTlgE"/>
+<Thumbnail name="Realistic Tank in Unity" imgFile="realistic-tank.png" link="https://www.youtube.com/watch?v=iBhd8xeTlgE"/>
+
 
 ## 0. Unity project
 
@@ -28,172 +29,9 @@ import Thumbnail from '@site/src/components/thumbnail';
 
 ---
 
-## 1. Camera
+## 1. Tank
 
-### 1.1. Create the Camera
-1. ➕ **Create** an **Empty** 
-2. ✏️ **Rename** it to *CameraFollow*
-3. 🌎 **Set Transform** 
-
-| Transform | X  | Y | Z |
-| --------  | --- | --- | --- |
-| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
-| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
-| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
-
-4. ➕ **Create** an **Empty** child of *CameraFollow*
-5. ✏️ **Rename** it to *CameraPivot*
-6. 🌎 **Set Transform** 
-
-| Transform | X  | Y | Z |
-| --------  | --- | --- | --- |
-| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
-| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
-| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
-
-7. ➕ **Create** a **Camera** child of *CameraPivot*
-8. ✏️ **Rename** it to *Camera*
-9. 🌎 **Set Transform** 
-
-| Transform | X  | Y | Z |
-| --------  | --- | --- | --- |
-| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">3.0</Highlight> | <Highlight color="#0000ff">-6.0</Highlight> |
-| Rotation  | <Highlight color="#be0000">10.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
-| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
-
-### 1.2. Create the Camera Follow Code
-1. ➕ **Create** a **C# Script** inside *Scripts*
-2. ✏️ **Rename** it to *Follow*
-3. 🖱🖱 **Double Click** on *Follow* to open it in your code editor
-4. 📚 **Copy** the code below
-
-```cs
-using UnityEngine;  
-  
-public class Follow : MonoBehaviour  
-{  
-    // Components  
-    [Header("Components")]  
-    public Transform targetTransform;  
-    
-    // Update  
-    [Header("Update")]   
-	public EUpdateType updateType = EUpdateType.FixedUpdate;  
-    public enum EUpdateType  
-    {  
-        Update,  
-        FixedUpdate,  
-        LateUpdate  
-    }  
-    
-    // Follow  
-    [Header("Movement")]  
-    public float followSpeed = 5f;  
-  
-    private void Update()  
-    {        
-	    if (updateType != EUpdateType.Update)  
-            return;  
-        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.deltaTime);  
-    } 
-     
-    private void FixedUpdate()  
-    {        
-	    if (updateType != EUpdateType.FixedUpdate)  
-            return;  
-        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.fixedDeltaTime);  
-    } 
-     
-    private void LateUpdate()  
-    {        
-	    if (updateType != EUpdateType.LateUpdate)  
-            return;  
-        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.deltaTime);  
-    }
-}
-```
-
-5. ➕ **Save** the script to compile it
-6. 🎯 **Assign** the script to *CameraFollow* in Unity
-7. 🖱 **Select** the *CameraFollow* in your scene
-8. 🎯 **Assign** the *Tank* in *TargetTransform*
-
-### 1.3. Create the Camera Look Code
-1. ➕ **Create** a **C# Script** inside *Scripts*
-2. ✏️ **Rename** it to *Look*
-3. 🖱🖱 **Double Click** on *Look* to open it in your code editor
-4. 📚 **Copy** the code below
-
-```cs
-using UnityEngine;  
-  
-public class Look : MonoBehaviour  
-{  
-    // Components  
-    [Header("Components")]  
-    public Transform cameraPivotTransform;  
-    
-    // Yaw  
-    [Header("Yaw")]   
-	public bool allowYaw = true;  
-    public float yawSpeed = 200f;  
-    
-    // Pitch   
-	[Header("Pitch")]   
-	public bool allowPitch = false;  
-    public float pitchSpeed = 200f;  
-    public float pitchMinAngle = -60f;  
-    public float pitchMaxAngle = 60f;  
-    public bool invertPitch = true;  
-    
-    // Private Variables  
-    private float _mouseX;  
-    private float _mouseY;  
-    private float _yaw;  
-    private float _pitch;  
-    
-    private void Update()  
-    {        
-	    Inputs();  
-    }  
-    private void Inputs()  
-    {        
-	    _mouseX = Input.GetAxis("Mouse X");  
-        _mouseY = Input.GetAxis("Mouse Y");  
-    }    
-    
-	    private void LateUpdate()  
-    {        
-	    LookAround(_mouseX, _mouseY);  
-    }  
-    
-    private void LookAround(float mouseX, float mouseY)  
-    {        
-	    if (allowYaw)  
-        {           
-			_yaw += mouseX * yawSpeed * Time.deltaTime;  
-        }  
-        if (allowPitch)  
-        {            
-	        _pitch += (invertPitch ? -mouseY : mouseY) * pitchSpeed * Time.deltaTime;  
-            _pitch = Mathf.Clamp(_pitch, pitchMinAngle, pitchMaxAngle);  
-        }        
-        
-        cameraPivotTransform.localRotation = Quaternion.Euler(_pitch, _yaw, 0f);  
-    }
-}
-```
-
-5. 💾 **Save** the script to compile it
-6. 🎯 **Assign** the script to *CameraFollow* in Unity
-7. 🖱 **Select** the *CameraFollow* in your scene
-8. 🎯 **Assign** the *CameraPivot* in *CameraPivotTransform*
-
----
-
-## 2. Tank
-
-### 2.1. Create the Tank
+### 1.1. Create the Tank
 1. ➕ **Create** an **Empty** 
 2. ✏️ **Rename** it to *Tank*
 3. 🌎 **Set Transform** 
@@ -315,7 +153,7 @@ public class Look : MonoBehaviour
 | Rotation  | <Highlight color="#be0000">-90.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
 
-### 2.2. Create the Tank Code
+### 1.2. Create the Tank Code
 1. ➕ **Create** a **C# Script** inside *Scripts*
 2. ✏️ **Rename** it to *RealisticTank*
 3. 🖱🖱 **Double Click** on *RealisticTank* to open it in your code editor
@@ -513,9 +351,9 @@ aimRotationSpeed * Time.deltaTime);
 
 ---
 
-## 3. Shell
+## 2. Shell
 
-### 3.1. Create the Shell
+### 2.1. Create the Shell
 1. ➕ **Create** an **Empty** 
 2. ✏️ **Rename** it to *Shell*
 3. 🌎 **Set Transform** 
@@ -572,7 +410,7 @@ aimRotationSpeed * Time.deltaTime);
 | Rotation  | <Highlight color="#be0000">90.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
 | Scale     | <Highlight color="#be0000">0.2</Highlight> | <Highlight color="#026440">0.2</Highlight> | <Highlight color="#0000ff">0.2</Highlight> |
 
-### 3.2. Create the Shell Code
+### 2.2. Create the Shell Code
 1. ➕ **Create** a **C# Script** inside *Scripts*
 2. ✏️ **Rename** it to *Destroy*
 3. 🖱🖱 **Double Click** on *Destroy* to open it in your code editor
@@ -612,6 +450,169 @@ public class Destroy : MonoBehaviour
 7. ➡️ **Drag** the *Shell* from the hierarchy to the *Prefabs* folder
 8. 🖱 **Select** the *Tank* in your scene
 9. 🎯 **Assign** the *Shell* in *ShellPrefab*
+
+---
+
+## 3. Camera
+
+### 3.1. Create the Camera
+1. ➕ **Create** an **Empty** 
+2. ✏️ **Rename** it to *CameraFollow*
+3. 🌎 **Set Transform** 
+
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
+
+4. ➕ **Create** an **Empty** child of *CameraFollow*
+5. ✏️ **Rename** it to *CameraPivot*
+6. 🌎 **Set Transform** 
+
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
+
+7. ➕ **Create** a **Camera** child of *CameraPivot*
+8. ✏️ **Rename** it to *Camera*
+9. 🌎 **Set Transform** 
+
+| Transform | X  | Y | Z |
+| --------  | --- | --- | --- |
+| Position  | <Highlight color="#be0000">0.0</Highlight> | <Highlight color="#026440">3.0</Highlight> | <Highlight color="#0000ff">-6.0</Highlight> |
+| Rotation  | <Highlight color="#be0000">10.0</Highlight> | <Highlight color="#026440">0.0</Highlight> | <Highlight color="#0000ff">0.0</Highlight> |
+| Scale     | <Highlight color="#be0000">1.0</Highlight> | <Highlight color="#026440">1.0</Highlight> | <Highlight color="#0000ff">1.0</Highlight> |
+
+### 3.2. Create the Camera Follow Code
+1. ➕ **Create** a **C# Script** inside *Scripts*
+2. ✏️ **Rename** it to *Follow*
+3. 🖱🖱 **Double Click** on *Follow* to open it in your code editor
+4. 📚 **Copy** the code below
+
+```cs
+using UnityEngine;  
+  
+public class Follow : MonoBehaviour  
+{  
+    // Components  
+    [Header("Components")]  
+    public Transform targetTransform;  
+    
+    // Update  
+    [Header("Update")]   
+	public EUpdateType updateType = EUpdateType.FixedUpdate;  
+    public enum EUpdateType  
+    {  
+        Update,  
+        FixedUpdate,  
+        LateUpdate  
+    }  
+    
+    // Follow  
+    [Header("Movement")]  
+    public float followSpeed = 5f;  
+  
+    private void Update()  
+    {        
+	    if (updateType != EUpdateType.Update)  
+            return;  
+        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.deltaTime);  
+    } 
+     
+    private void FixedUpdate()  
+    {        
+	    if (updateType != EUpdateType.FixedUpdate)  
+            return;  
+        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.fixedDeltaTime);  
+    } 
+     
+    private void LateUpdate()  
+    {        
+	    if (updateType != EUpdateType.LateUpdate)  
+            return;  
+        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.deltaTime);  
+    }
+}
+```
+
+5. ➕ **Save** the script to compile it
+6. 🎯 **Assign** the script to *CameraFollow* in Unity
+7. 🖱 **Select** the *CameraFollow* in your scene
+8. 🎯 **Assign** the *Tank* in *TargetTransform*
+
+### 1.3. Create the Camera Look Code
+1. ➕ **Create** a **C# Script** inside *Scripts*
+2. ✏️ **Rename** it to *Look*
+3. 🖱🖱 **Double Click** on *Look* to open it in your code editor
+4. 📚 **Copy** the code below
+
+```cs
+using UnityEngine;  
+  
+public class Look : MonoBehaviour  
+{  
+    // Components  
+    [Header("Components")]  
+    public Transform cameraPivotTransform;  
+    
+    // Yaw  
+    [Header("Yaw")]   
+	public bool allowYaw = true;  
+    public float yawSpeed = 200f;  
+    
+    // Pitch   
+	[Header("Pitch")]   
+	public bool allowPitch = false;  
+    public float pitchSpeed = 200f;  
+    public float pitchMinAngle = -60f;  
+    public float pitchMaxAngle = 60f;  
+    public bool invertPitch = true;  
+    
+    // Private Variables  
+    private float _mouseX;  
+    private float _mouseY;  
+    private float _yaw;  
+    private float _pitch;  
+    
+    private void Update()  
+    {        
+	    Inputs();  
+    }  
+    private void Inputs()  
+    {        
+	    _mouseX = Input.GetAxis("Mouse X");  
+        _mouseY = Input.GetAxis("Mouse Y");  
+    }    
+    
+	    private void LateUpdate()  
+    {        
+	    LookAround(_mouseX, _mouseY);  
+    }  
+    
+    private void LookAround(float mouseX, float mouseY)  
+    {        
+	    if (allowYaw)  
+        {           
+			_yaw += mouseX * yawSpeed * Time.deltaTime;  
+        }  
+        if (allowPitch)  
+        {            
+	        _pitch += (invertPitch ? -mouseY : mouseY) * pitchSpeed * Time.deltaTime;  
+            _pitch = Mathf.Clamp(_pitch, pitchMinAngle, pitchMaxAngle);  
+        }        
+        
+        cameraPivotTransform.localRotation = Quaternion.Euler(_pitch, _yaw, 0f);  
+    }
+}
+```
+
+5. 💾 **Save** the script to compile it
+6. 🎯 **Assign** the script to *CameraFollow* in Unity
+7. 🖱 **Select** the *CameraFollow* in your scene
+8. 🎯 **Assign** the *CameraPivot* in *CameraPivotTransform*
 
 ---
 
