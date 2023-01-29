@@ -67,6 +67,52 @@ import Thumbnail from '@site/src/components/thumbnail';
 3. 🖱🖱 **Double Click** on *Follow* to open it in your code editor
 4. 📚 **Copy** the code below
 
+```cs
+using UnityEngine;  
+  
+public class Follow : MonoBehaviour  
+{  
+    // Components  
+    [Header("Components")]  
+    public Transform targetTransform;  
+    
+    // Update  
+    [Header("Update")]   
+	public EUpdateType updateType = EUpdateType.FixedUpdate;  
+    public enum EUpdateType  
+    {  
+        Update,  
+        FixedUpdate,  
+        LateUpdate  
+    }  
+    
+    // Follow  
+    [Header("Movement")]  
+    public float followSpeed = 5f;  
+  
+    private void Update()  
+    {        
+	    if (updateType != EUpdateType.Update)  
+            return;  
+        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.deltaTime);  
+    } 
+     
+    private void FixedUpdate()  
+    {        
+	    if (updateType != EUpdateType.FixedUpdate)  
+            return;  
+        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.fixedDeltaTime);  
+    } 
+     
+    private void LateUpdate()  
+    {        
+	    if (updateType != EUpdateType.LateUpdate)  
+            return;  
+        transform.position = Vector3.Lerp(transform.position, targetTransform.position, followSpeed * Time.deltaTime);  
+    }
+}
+```
+
 5. ➕ **Save** the script to compile it
 6. 🎯 **Assign** the script to *CameraFollow* in Unity
 7. 🖱 **Select** the *CameraFollow* in your scene
@@ -78,7 +124,7 @@ import Thumbnail from '@site/src/components/thumbnail';
 3. 🖱🖱 **Double Click** on *Look* to open it in your code editor
 4. 📚 **Copy** the code below
 
-```C#
+```cs
 using UnityEngine;  
   
 public class Look : MonoBehaviour  
@@ -147,7 +193,7 @@ public class Look : MonoBehaviour
 
 ## 2. Tank
 
-### 2.1. Create the Mesh
+### 2.1. Create the Tank
 1. ➕ **Create** an **Empty** 
 2. ✏️ **Rename** it to *Tank*
 3. 🌎 **Set Transform** 
@@ -275,7 +321,7 @@ public class Look : MonoBehaviour
 3. 🖱🖱 **Double Click** on *RealisticTank* to open it in your code editor
 4. 📚 **Copy** the code below
 
-```C#
+```cs
 using UnityEngine;  
   
 public class Tank : MonoBehaviour  
@@ -532,7 +578,7 @@ aimRotationSpeed * Time.deltaTime);
 3. 🖱🖱 **Double Click** on *Destroy* to open it in your code editor
 4. 📚 **Copy** the code below
 
-```C#
+```cs
 using UnityEngine;  
   
 public class Destroy : MonoBehaviour  
